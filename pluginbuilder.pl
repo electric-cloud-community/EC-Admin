@@ -54,18 +54,18 @@ my $pluginName = "${pluginKey}-${pluginVersion}";
 
 print "[INFO] - Creating plugin '$pluginName'\n";
 
-system ("BUILD_NUMBER=$buildCounter pluginbuilder build");
+system ("BUILD_NUMBER=$buildCounter pluginbuilder build -df lib -f META-INF -f libs -f pages -f htdocs");
 
-move("build/${pluginKey}.zip", ".");
+move("build/${pluginKey}.zip", "./${pluginKey}.jar");
 
 # Uninstall old plugin
 #print "[INFO] - Uninstalling old plugin...\n";
 #$ec->uninstallPlugin($pluginKey) || print "No old plugin\n";
 
 # Install plugin
-print "[INFO] - Installing plugin ${pluginKey}.zip...\n";
+print "[INFO] - Installing plugin ${pluginKey}.jar...\n";
 system ('date');
-$ec->installPlugin("${pluginKey}.zip");
+$ec->installPlugin("${pluginKey}.jar");
 system ('date');
 print "\n";
 

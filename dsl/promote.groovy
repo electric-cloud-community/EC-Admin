@@ -111,38 +111,6 @@ project pluginName, {
 	  ]
 }
 
-/*
- JIRA PLUGINWIZ-58
- moving ACLs back to create_ec_setup.pl
-
-// ACLs
-// Give Everyone permissions on /server/counters/EC-Admin
-println "Setting ACLs on /server/counters/EC-Admin"
-aclEntry(
-  principalType: "group",      principalName: "Everyone",
-  objectType: "propertySheet", path: "/server/counters/EC-Admin",
-  readPrivilege: "allow",      modifyPrivilege: "allow",
-  executePrivilege: "inherit", changePermissionsPrivilege: "inherit"
-)
-// Give plugin permission on /server/EC-Admin
-println "Setting ACLs on /server/EC-Admin"
-aclEntry(
-  principalType: "user",       principalName: "project: $pluginName",
-  objectType: "propertySheet", path: "/server/EC-Admin",
-  projectName: $pluginName,
-  readPrivilege: "allow",      modifyPrivilege: "allow",
-  executePrivilege: "inherit", changePermissionsPrivilege: "allow"
-)
-// Give project principal "Electric Cloud" write access to our project report PS
-println "Setting ACLs on /projects/$pluginName/ec_reportData"
-aclEntry(
-  principalType: "user",       principalName: "project: Electric Cloud",
-  objectType: "propertySheet", path: "/projects/$pluginName/ec_reportData",
-  readPrivilege: "allow",      modifyPrivilege: "allow",
-  executePrivilege: "inherit", changePermissionsPrivilege: "inherit"
- )
-*/
-
 // Copy existing plugin configurations from the previous
 // version to this version. At the same time, also attach
 // the credentials to the required plugin procedure steps.

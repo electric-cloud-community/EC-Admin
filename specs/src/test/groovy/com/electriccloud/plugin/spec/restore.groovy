@@ -26,7 +26,7 @@ class restore extends PluginTestHelper {
           projectName: "/plugins/$pName/project",
           procedureName: "restoreObjects",
           actualParameter: [
-            directory: "$plugDir/$pName-$pVersion/lib/data/restore/",
+            directory: "$plugDir/$pName-$pVersion/libs/data/restore/",
             force: "false",
             resource: "local"
           ]
