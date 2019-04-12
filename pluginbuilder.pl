@@ -52,6 +52,9 @@ my $buildCounter;
 }
 my $pluginName = "${pluginKey}-${pluginVersion}";
 
+print "[INFO] - Cleaning\n";
+system("clean.sh");
+
 print "[INFO] - Creating plugin '$pluginName'\n";
 
 system ("BUILD_NUMBER=$buildCounter pluginbuilder build -df lib -f META-INF -f libs -f pages -f htdocs");
