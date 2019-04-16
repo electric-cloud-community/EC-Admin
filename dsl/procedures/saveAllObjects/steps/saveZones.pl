@@ -58,9 +58,11 @@ foreach my $node ($xPath->findnodes('//zone')) {
 
   printf("Saving Zone: %s\n", $zoneName);
   my $fileZoneName=safeFilename($zoneName);
+  mkpath("$path/zones/$fileZoneName");
+  chmod(0777, "$path/zones/$fileZoneName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/zones/$fileZoneName",
+    backupObject($format, "$path/zones/$fileZoneName/zone",
     "/zones[$zoneName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("  Error exporting %s", $zoneName);

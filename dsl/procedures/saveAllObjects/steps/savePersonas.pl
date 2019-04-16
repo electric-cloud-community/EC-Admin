@@ -73,9 +73,11 @@ foreach my $node ($xPath->findnodes('//persona')) {
 
   printf("  Saving Persona: %s\n", $personaName);
   my $filePersonaName=safeFilename($personaName);
+  mkpath("$path/personas/$filePersonaName");
+  chmod(0777, "$path/personas/$filePersonaName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/personas/$filePersonaName",
+    backupObject($format, "$path/personas/$filePersonaName/persona",
     "/personas[$personaName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("    Error exporting %s", $personaName);

@@ -61,8 +61,11 @@ foreach my $node ($xPath->findnodes('//group')) {
   printf("Saving group: %s\n", $groupName);
   my $fileGroupName=safeFilename($groupName);
 
+  mkpath("$path/groups/$fileGroupName");
+  chmod(0777, "$path/groups/$fileGroupName");
+
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/groups/$fileGroupName",
+    backupObject($format, "$path/groups/$fileGroupName/group",
   		"/groups[$groupName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("  Error exporting %s", $groupName);

@@ -65,9 +65,11 @@ foreach my $node ($xPath->findnodes('//tag')) {
 
   printf("Saving Tag: %s\n", $tagName);
   my $fileTagName=safeFilename($tagName);
+  mkpath("$path/tags/$fileTagName");
+  chmod(0777, "$path/tags/$fileTagName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/tags/$fileTagName",
+    backupObject($format, "$path/tags/$fileTagName/tag",
     "/tags[$tagName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("  Error exporting %s", $tagName);

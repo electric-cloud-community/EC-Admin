@@ -47,8 +47,8 @@ my $poolCount=0;
 my ($success, $xPath) = InvokeCommander("SuppressLog", "getResourcePools");
 
 # Create the Resources directory
-mkpath("$path/pools");
-chmod(0777, "$path/pools");
+mkpath("$path/resourcePools");
+chmod(0777, "$path/resourcePools");
 
 foreach my $node ($xPath->findnodes('//resourcePool')) {
   my $poolName=$node->{'resourcePoolName'};
@@ -58,9 +58,11 @@ foreach my $node ($xPath->findnodes('//resourcePool')) {
 
   printf("Saving Resource Pool: %s\n", $poolName);
   my $filePoolName=safeFilename($poolName);
+  mkpath("$path/resourcePools/$filePoolName");
+  chmod(0777, "$path/resourcePools/$filePoolName");
 
   my ($success, $res, $errMsg, $errCode) =
-      backupObject($format, "$path/pools/$filePoolName",
+      backupObject($format, "$path/resourcePools/$filePoolName/resourcePool",
   			"/resourcePools/[$poolName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("  Error exporting %s", $poolName);
