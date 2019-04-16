@@ -18,6 +18,9 @@ class backup extends PluginTestHelper {
   static String res89     = "res<issue89>end"
   static String project90 = "_issue90"
   static String project127 = "issue127/win"
+  static String tag161     = "tag161"
+  static String project161 = "project161"
+  static String pers161    = "persona161"
 
   def doSetupSpec() {
     dslFile 'dsl/EC-Admin_Test.groovy'
@@ -33,7 +36,9 @@ class backup extends PluginTestHelper {
       deleteZone(zoneName: "$zone59")
       deleteResource(resourceName: "$res88")
       deleteResource(resourceName: "$res89")
-    """
+      deleteTag(tagName: "$tag161")
+      deletePersona(personaName: "$pers161")
+  """
     conditionallyDeleteProject(project63)
     conditionallyDeleteProject(project74)
     conditionallyDeleteProject(project77)
@@ -41,6 +46,7 @@ class backup extends PluginTestHelper {
     conditionallyDeleteProject(project87)
     conditionallyDeleteProject(project90)
     conditionallyDeleteProject(project127)
+    conditionallyDeleteProject(project161)
 }
 
  def runSaveAllObjects(String jobName, def additionnalParams) {
@@ -304,37 +310,67 @@ import com.electriccloud.util.SortSpec
   def "issue 89 < and > in filenames"() {
     given: "a resource with < and > in the name"
       dsl """resource "$res89" """
-  when: "save objects in XML format"
-    def result=runSaveAllObjects("Issue89", [pattern: "issue89", exportResources: "true"])
-  then: "resource is saved and slash replaced"
-    assert result.jobId
-    assert result?.outcome == 'success'
-    assert fileExist("$backupDir/resources/res_issue89_end/resource.xml")
+    when: "save objects in XML format"
+      def result=runSaveAllObjects("Issue89", [pattern: "issue89", exportResources: "true"])
+    then: "resource is saved and slash replaced"
+      assert result.jobId
+      assert result?.outcome == 'success'
+      assert fileExist("$backupDir/resources/res_issue89_end/resource.xml")
   }
 
   // issue 90 project starting with _
   def "issue 90 project starting with _"() {
     given: "a project whose name starts with _"
       dsl """project "$project90" """
-  when: "save objects in XML format"
-    def result=runSaveAllObjects("Issue90", [pattern: "issue90"])
-  then: "resource is saved and slash replaced"
-    assert result.jobId
-    assert result?.outcome == 'success'
-    assert fileExist("$backupDir/projects/_issue90/project.xml")
+    when: "save objects in XML format"
+      def result=runSaveAllObjects("Issue90", [pattern: "issue90"])
+    then: "resource is saved and slash replaced"
+      assert result.jobId
+      assert result?.outcome == 'success'
+      assert fileExist("$backupDir/projects/_issue90/project.xml")
   }
 
   // issue 127 slash in project name
   def "issue 127 slash in project name"() {
     given: "a project whose name contains /"
       dsl """project "$project127", { procedure 'foo/bar' } """
-  when: "save objects in XML format"
-    def result=runSaveAllObjects("Issue127", [pattern: "issue127"])
-  then: "resource is saved and slash replaced"
-    assert result.jobId
-    assert result?.outcome == 'success'
-    assert fileExist("$backupDir/projects/issue127_win/project.xml")
-    assert fileExist("$backupDir/projects/issue127_win/procedures/foo_bar/procedure.xml")
+    when: "save objects in XML format"
+      def result=runSaveAllObjects("Issue127", [pattern: "issue127"])
+    then: "resource is saved and slash replaced"
+      assert result.jobId
+      assert result?.outcome == 'success'
+      assert fileExist("$backupDir/projects/issue127_win/project.xml")
+      assert fileExist("$backupDir/projects/issue127_win/procedures/foo_bar/procedure.xml")
   }
+
+  // issue 161 save tags and ser
+  def "issue 161 save tags, service and persona"() {
+    given: "a tag, a service and a persona"
+      dsl """
+      tag "$tag161"
+      project "$project161", { service "service161" }
+      persona "$pers161"
+    """
+    when: "save objects in XML format"
+      def result=runSaveAllObjects("Issue161-tag", [pattern: "161"])
+    then: "tag, service and persona are saved"
+      assert result.jobId
+      assert result?.outcome == 'success'
+      assert fileExist("$backupDir/tags/$tag161/tag.xml")
+      assert fileExist("$backupDir/projects/$project161/services/service161/service.xml")
+      assert fileExist("$backupDir/personas/$pers161/persona.xml")
+   }
+
+  // issue 161 save tags and ser
+  def "issue 161 save service"() {
+    given: "a service"
+      dsl """ """
+    when: "save objects in XML format"
+      def result=runSaveAllObjects("Issue161-service", [pattern: "161"])
+    then: "service is saved"
+      assert result.jobId
+      assert result?.outcome == 'success'
+      assert fileExist("$backupDir/projects/$project161/services/service161/service.xml")
+    }
 
 }
