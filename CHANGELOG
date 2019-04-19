@@ -1,3 +1,9 @@
+2019-04-19 Laurent Rochette <lrochette@electric-cloud.com>
+  * 4.1.1: Issue with saveAllObjects on catalogItems
+
+2019-04-17 Laurent Rochette <lrochette@electric-cloud.com>
+  * 4.1.0: Save email configurations and directory providers
+
 2019-03-28 Laurent Rochette <lrochette@electric-cloud.com>
   * 4.0.0: Fix #31 Convert to new plugin builder to speed up promotion
 

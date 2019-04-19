@@ -9,18 +9,18 @@ class backup extends PluginTestHelper {
   static String gate58    = "GW58"
   static String res58     = "gw_resource_58"
   static String zone59    = "zone59"
-  static String project63 = "456GHTVF123"
-  static String project74 = "ISSUE74"
-  static String project77 = "Issue/77"
-  static String project83 = " ISSUE83 "
-  static String project87 = "issue87"
+  static String proj63    = "456GHTVF123"
+  static String proj74    = "ISSUE74"
+  static String proj77    = "Issue/77"
+  static String proj83    = " ISSUE83 "
+  static String proj87    = "issue87"
   static String res88     = "res_SA/issue88"
   static String res89     = "res<issue89>end"
-  static String project90 = "_issue90"
-  static String project127 = "issue127/win"
-  static String tag161     = "tag161"
-  static String project161 = "project161"
-  static String pers161    = "persona161"
+  static String proj90    = "_issue90"
+  static String proj127   = "issue127/win"
+  static String tag161    = "tag161"
+  static String proj161   = "project161"
+  static String pers161   = "persona161"
 
   def doSetupSpec() {
     dslFile 'dsl/EC-Admin_Test.groovy'
@@ -39,18 +39,18 @@ class backup extends PluginTestHelper {
       deleteTag(tagName: "$tag161")
       deletePersona(personaName: "$pers161")
   """
-    conditionallyDeleteProject(project63)
-    conditionallyDeleteProject(project74)
-    conditionallyDeleteProject(project77)
-    conditionallyDeleteProject(project83)
-    conditionallyDeleteProject(project87)
-    conditionallyDeleteProject(project90)
-    conditionallyDeleteProject(project127)
-    conditionallyDeleteProject(project161)
+    conditionallyDeleteProject(proj63)
+    conditionallyDeleteProject(proj74)
+    conditionallyDeleteProject(proj77)
+    conditionallyDeleteProject(proj83)
+    conditionallyDeleteProject(proj87)
+    conditionallyDeleteProject(proj90)
+    conditionallyDeleteProject(proj127)
+    conditionallyDeleteProject(proj161)
 }
 
  def runSaveAllObjects(String jobName, def additionnalParams) {
-    println "##LR Running runSaveAllObjects"
+    // println "##LR Running runSaveAllObjects"
     def params=[
         pathname: "\"$backupDir\"",
         pool: "\"default\"",
@@ -170,7 +170,7 @@ class backup extends PluginTestHelper {
   def "issue 63 - pattern"() {
     given: "a project"
       dsl """
-        project "$project63",
+        project "$proj63",
           description: "for backup testing"
       """
     when: "save objects in XML format"
@@ -196,7 +196,7 @@ class backup extends PluginTestHelper {
   // Issue 74: case insensitive
   def "issue 74 case insensitive option"() {
     given: "a project with all capital name"
-      dsl """project "$project74" """
+      dsl """project "$proj74" """
     when: "save objects in XML format"
       def result=runSaveAllObjects(
         "Issue74_case_insensitive",
@@ -211,9 +211,9 @@ class backup extends PluginTestHelper {
   def "issue 77 procedure with slash"() {
     given: "a projet with slash in the name"
       dsl """
-        project "$project77",
+        project "$proj77",
           description: "for backup testing", {
-            procedure "$project77", {
+            procedure "$proj77", {
               step 'echo',
                 command: "echo HelloWorld"
             }
@@ -232,7 +232,7 @@ class backup extends PluginTestHelper {
   // Issue 83: heading and trailing spaces
   def "issue 83 trailing spaces"() {
     given: "a projet with trailing space in the name"
-      dsl """project "$project83" """
+      dsl """project "$proj83" """
     when: "save objects in XML format"
       def result=runSaveAllObjects("Issue83_space", [pattern: "ISSUE83"])
     then: "project is saved and spaces removed"
@@ -245,7 +245,7 @@ class backup extends PluginTestHelper {
  // Issue 87: empty pattern
  def "issue 87 empty pattern"() {
    given: "a projet and no pattern used"
-     dsl """project "$project87" """
+     dsl """project "$proj87" """
    when: "save objects in XML format"
      def result=runSaveAllObjects("Issue87_emptyPattern",
       [exportUsers: "true", exportZones: "true"])
@@ -321,7 +321,7 @@ import com.electriccloud.util.SortSpec
   // issue 90 project starting with _
   def "issue 90 project starting with _"() {
     given: "a project whose name starts with _"
-      dsl """project "$project90" """
+      dsl """project "$proj90" """
     when: "save objects in XML format"
       def result=runSaveAllObjects("Issue90", [pattern: "issue90"])
     then: "resource is saved and slash replaced"
@@ -333,7 +333,7 @@ import com.electriccloud.util.SortSpec
   // issue 127 slash in project name
   def "issue 127 slash in project name"() {
     given: "a project whose name contains /"
-      dsl """project "$project127", { procedure 'foo/bar' } """
+      dsl """project "$proj127", { procedure 'foo/bar' } """
     when: "save objects in XML format"
       def result=runSaveAllObjects("Issue127", [pattern: "issue127"])
     then: "resource is saved and slash replaced"
@@ -348,29 +348,17 @@ import com.electriccloud.util.SortSpec
     given: "a tag, a service and a persona"
       dsl """
       tag "$tag161"
-      project "$project161", { service "service161" }
+      project "$proj161", { service "service161" }
       persona "$pers161"
     """
     when: "save objects in XML format"
-      def result=runSaveAllObjects("Issue161-tag", [pattern: "161"])
+      def result=runSaveAllObjects("Issue161", [pattern: "161",
+       exportDeploy: "true", exportPersonas: "true"])
     then: "tag, service and persona are saved"
       assert result.jobId
       assert result?.outcome == 'success'
       assert fileExist("$backupDir/tags/$tag161/tag.xml")
-      assert fileExist("$backupDir/projects/$project161/services/service161/service.xml")
+      assert fileExist("$backupDir/projects/$proj161/services/service161/service.xml")
       assert fileExist("$backupDir/personas/$pers161/persona.xml")
    }
-
-  // issue 161 save tags and ser
-  def "issue 161 save service"() {
-    given: "a service"
-      dsl """ """
-    when: "save objects in XML format"
-      def result=runSaveAllObjects("Issue161-service", [pattern: "161"])
-    then: "service is saved"
-      assert result.jobId
-      assert result?.outcome == 'success'
-      assert fileExist("$backupDir/projects/$project161/services/service161/service.xml")
-    }
-
 }

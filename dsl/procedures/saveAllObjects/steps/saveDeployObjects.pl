@@ -333,13 +333,15 @@ foreach my $node ($xPath->findnodes('//project')) {
       }
 
       # backup catalogItems
+      mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
+      chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
       my ($ok, $json) = InvokeCommander("SuppressLog", "getCatalogItems", $pName, $catName);
       foreach my $item ($json->findnodes("//catalogItem")) {
         my $itemName=$item->{'catalogItemName'};
         my $fileItemName=safeFilename($itemName);
         printf("    Saving Catalog Item: %s\n", $itemName);
-        mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
-        chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
+        mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems/$fileItemName");
+        chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems/$fileItemName");
 
         my ($success, $res, $errMsg, $errCode) =
           backupObject($format,
