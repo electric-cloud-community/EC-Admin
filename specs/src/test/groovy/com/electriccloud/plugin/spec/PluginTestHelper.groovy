@@ -139,11 +139,33 @@ class PluginTestHelper extends PluginSpockTestSupport {
     return res.outcome == "success"
   }
 
-  def importXML(String filename) {
-    def res=dsl """import (fileName: "$filename", force: "1")"""
-    assert res
-  }
+//  def importXML(String filename) {
+//   def res=dsl """import (fileName: "$filename", force: "1")"""
+//    assert res
+//  }
 
+  def importXML(String filename) {
+    String commanderServer = System.getProperty("COMMANDER_SERVER") ?: 'localhost'
+    String username = System.getProperty('COMMANDER_USER') ?: 'admin'
+    String password = System.getProperty('COMMANDER_PASSWORD') ?: 'changeme'
+    String commanderHome = System.getenv('COMMANDER_HOME') ?: '/opt/EC/'
+    assert commanderHome: "Env COMMANDER_HOME must be provided"
+
+     String ectoolPath
+     if (System.properties['os.name'].toLowerCase().contains('windows')) {
+       ectoolPath = "bin/ectool.exe"
+     } else {
+       ectoolPath = "bin/ectool"
+     }
+     File ectool = new File(commanderHome, ectoolPath)
+     assert ectool.exists(): "File ${ectool.absolutePath} does not exist"
+
+     logger.debug("ECTOOL PATH: " + ectool.absolutePath.toString())
+
+     String command = "${ectool.absolutePath} --server $commanderServer "
+     runCommand("${command} login ${username} ${password}")
+     runCommand("${command} import --force 1 --file ${filename}")
+  }
  //
 // Copied from PluginSpockTestSupport.groovy
 //

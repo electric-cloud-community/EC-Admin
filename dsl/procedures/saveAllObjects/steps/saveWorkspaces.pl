@@ -58,9 +58,11 @@ foreach my $node ($xPath->findnodes('//workspace')) {
 
   printf("Saving Workspace: %s\n", $wksName);
   my $fileWorkspaceName=safeFilename($wksName);
+  mkpath("$path/workspaces/$fileWorkspaceName");
+  chmod(0777, "$path/workspaces/$fileWorkspaceName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/workspaces/$fileWorkspaceName",
+    backupObject($format, "$path/workspaces/$fileWorkspaceName/workspace",
   		"/workspaces[$wksName]", $relocatable, $includeACLs, $includeNotifiers);
   if (! $success) {
     printf("  Error exporting %s", $wksName);

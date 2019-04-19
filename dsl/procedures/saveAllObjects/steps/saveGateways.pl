@@ -58,9 +58,11 @@ foreach my $node ($xPath->findnodes('//gateway')) {
 
   printf("Saving Gateway: %s\n", $gateName);
   my $fileGatewayName=safeFilename($gateName);
+  mkpath("$path/gateways/$fileGatewayName");
+  chmod(0777, "$path/gateways/$fileGatewayName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/gateways/$fileGatewayName",
+    backupObject($format, "$path/gateways/$fileGatewayName/gateway",
       "/gateways[$gateName]", $relocatable, $includeACLs, $includeNotifiers);
 
   if (! $success) {

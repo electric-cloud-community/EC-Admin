@@ -40,7 +40,7 @@
         <denyExecute>0</denyExecute>
         <denyModify>0</denyModify>
         <denyRead>0</denyRead>
-        <principalName>project: EC-Admin Management</principalName>
+        <principalName>project: CleanupTest</principalName>
         <principalType>user</principalType>
       </aclEntry>
     </acl>
@@ -58,7 +58,7 @@
       <exitCode>0</exitCode>
       <external>0</external>
       <finish>2014-02-10T13:55:07.191Z</finish>
-      <lastModifiedBy>project: EC-Admin Management</lastModifiedBy>
+      <lastModifiedBy>project: CleanupTest</lastModifiedBy>
       <licenseWaitTime>0</licenseWaitTime>
       <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
       <outcome>error</outcome>
@@ -73,7 +73,7 @@
       <start>2014-02-10T13:54:56.694Z</start>
       <status>completed</status>
       <subprocedure>saveAllObjects</subprocedure>
-      <subproject>EC-Admin Management</subproject>
+      <subproject>CleanupTest</subproject>
       <timeLimit></timeLimit>
       <workspaceWaitTime>0</workspaceWaitTime>
       <acl>
@@ -241,12 +241,12 @@
           <external>0</external>
           <finish>2014-02-10T13:54:57.835Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin Management</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveDeployObjects.1693377.log</logFileName>
           <modifyTime>2014-02-10T13:54:57.835Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
@@ -274,9 +274,9 @@
           <propertySheet>
             <propertySheetId>1939691</propertySheetId>
             <createTime>2014-02-10T13:54:57.755Z</createTime>
-            <lastModifiedBy>project: EC-Admin Management</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-02-10T13:54:57.755Z</modifyTime>
-            <owner>project: EC-Admin Management</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3975990</aclId>
               <inheriting>1</inheriting>
@@ -286,9 +286,9 @@
               <propertyName>summary</propertyName>
               <createTime>2014-02-10T13:54:57.755Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin Management</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-02-10T13:54:57.755Z</modifyTime>
-              <owner>project: EC-Admin Management</owner>
+              <owner>project: CleanupTest</owner>
               <value>Version 5.0 or greater is required to save Deploy objects</value>
             </property>
           </propertySheet>
@@ -312,12 +312,12 @@
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveProjectsProcedur.1693378.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
@@ -359,12 +359,12 @@
           <exitCode>0</exitCode>
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveResources.1693379.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postLogFileName>saveResources.1693379-postp.log</postLogFileName>
@@ -405,12 +405,12 @@
           <exitCode>0</exitCode>
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveResourcePools.1693380.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postLogFileName>saveResourcePools.1693380-postp.log</postLogFileName>
@@ -451,12 +451,12 @@
           <exitCode>0</exitCode>
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveWorkspaces.1693381.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postLogFileName>saveWorkspaces.1693381-postp.log</postLogFileName>
@@ -497,12 +497,12 @@
           <exitCode>0</exitCode>
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveUsers.1693382.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postLogFileName>saveUsers.1693382-postp.log</postLogFileName>
@@ -543,12 +543,12 @@
           <exitCode>0</exitCode>
           <external>0</external>
           <finish>2014-02-10T13:55:07.191Z</finish>
-          <lastModifiedBy>project: EC-Admin Management-1.11.4.93</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest-1.11.4.93</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveGroups.1693383.log</logFileName>
           <modifyTime>2014-02-10T13:55:07.191Z</modifyTime>
           <outcome>error</outcome>
-          <owner>project: EC-Admin Management</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postLogFileName>saveGroups.1693383-postp.log</postLogFileName>
@@ -576,7 +576,7 @@
       </calledProcedure>
     </jobStep>
     <liveProcedure>saveAllObjects</liveProcedure>
-    <projectName>EC-Admin Management</projectName>
+    <projectName>CleanupTest</projectName>
     <emailNotifier>
       <emailNotifierId>2351</emailNotifierId>
       <notifierName>failureNotification</notifierName>
@@ -587,9 +587,9 @@
       <destinations>$[/users/admin/email]</destinations>
       <eventType>onCompletion</eventType>
       <formattingTemplate>Subject: Job  '$[jobName]'  from procedure  '$[procedureName]'  $[/myEvent/type]  - Commander notification&#10;&#10;$[/server/ec_notifierTemplates/Html_JobTempl/body]</formattingTemplate>
-      <lastModifiedBy>project: EC-Admin Management</lastModifiedBy>
+      <lastModifiedBy>project: CleanupTest</lastModifiedBy>
       <modifyTime>2014-02-10T13:54:56.694Z</modifyTime>
-      <owner>project: EC-Admin Management-1.11.4.93</owner>
+      <owner>project: CleanupTest-1.11.4.93</owner>
       <acl>
         <aclId>3975981</aclId>
         <inheriting>1</inheriting>
@@ -603,7 +603,7 @@
           <denyExecute>0</denyExecute>
           <denyModify>0</denyModify>
           <denyRead>0</denyRead>
-          <principalName>project: EC-Admin Management-1.11.4.93</principalName>
+          <principalName>project: CleanupTest-1.11.4.93</principalName>
           <principalType>user</principalType>
         </aclEntry>
       </acl>

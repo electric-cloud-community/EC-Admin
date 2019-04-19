@@ -15,7 +15,7 @@ use ElectricCommander ();
 $| = 1;
 my $ec = new ElectricCommander->new({timeout => 600});
 
-my $pluginVersion = "4.0.0";
+my $pluginVersion = "4.1.1";
 my $pluginKey = "EC-Admin";
 
 
@@ -51,6 +51,9 @@ my $buildCounter;
  close FILE;
 }
 my $pluginName = "${pluginKey}-${pluginVersion}";
+
+print "[INFO] - Cleaning\n";
+system("clean.sh");
 
 print "[INFO] - Creating plugin '$pluginName'\n";
 

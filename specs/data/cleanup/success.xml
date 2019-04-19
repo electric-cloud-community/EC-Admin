@@ -9,9 +9,9 @@
     <external>0</external>
     <lastModifiedBy>admin</lastModifiedBy>
     <modifyTime>2014-01-29T23:02:08.125Z</modifyTime>
-    <owner>project: EC-Admin.ORIG</owner>
+    <owner>project: CleanupTest</owner>
     <priority>normal</priority>
-    <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+    <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
     <scheduleName>saveObjects</scheduleName>
     <acl>
       <aclId>3969628</aclId>
@@ -26,7 +26,7 @@
         <denyExecute>0</denyExecute>
         <denyModify>0</denyModify>
         <denyRead>0</denyRead>
-        <principalName>project: EC-Admin.ORIG</principalName>
+        <principalName>project: CleanupTest</principalName>
         <principalType>user</principalType>
       </aclEntry>
     </acl>
@@ -42,14 +42,14 @@
       <exitCode>0</exitCode>
       <external>0</external>
       <finish>2014-01-29T23:02:08.011Z</finish>
-      <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+      <lastModifiedBy>project: CleanupTest</lastModifiedBy>
       <licenseWaitTime>0</licenseWaitTime>
       <modifyTime>2014-01-29T23:02:08.011Z</modifyTime>
       <outcome>success</outcome>
-      <owner>project: EC-Admin.ORIG</owner>
+      <owner>project: CleanupTest</owner>
       <parallel>0</parallel>
       <postExitCode>0</postExitCode>
-      <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+      <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
       <releaseMode>none</releaseMode>
       <resourceWaitTime>0</resourceWaitTime>
       <retries>0</retries>
@@ -57,7 +57,7 @@
       <start>2014-01-29T23:00:00.003Z</start>
       <status>completed</status>
       <subprocedure>saveAllObjects</subprocedure>
-      <subproject>EC-Admin.ORIG</subproject>
+      <subproject>CleanupTest</subproject>
       <timeLimit></timeLimit>
       <workspaceWaitTime>0</workspaceWaitTime>
       <acl>
@@ -67,9 +67,9 @@
       <actualParameters>
         <propertySheetId>1937749</propertySheetId>
         <createTime>2014-01-29T23:00:00.003Z</createTime>
-        <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+        <lastModifiedBy>project: CleanupTest</lastModifiedBy>
         <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-        <owner>project: EC-Admin.ORIG</owner>
+        <owner>project: CleanupTest</owner>
         <acl>
           <aclId>3969631</aclId>
           <inheriting>1</inheriting>
@@ -79,9 +79,9 @@
           <propertyName>exportGroups</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -89,9 +89,9 @@
           <propertyName>exportResourcePools</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -99,9 +99,9 @@
           <propertyName>exportResources</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -109,9 +109,9 @@
           <propertyName>exportUsers</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -119,9 +119,9 @@
           <propertyName>exportWorkspaces</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -129,20 +129,20 @@
           <propertyName>pathname</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>/scratch/BACKUP</value>
         </property>
       </actualParameters>
       <jobId>210211</jobId>
-      <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+      <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
       <propertySheet>
         <propertySheetId>1937748</propertySheetId>
         <createTime>2014-01-29T23:00:00.003Z</createTime>
-        <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+        <lastModifiedBy>project: CleanupTest</lastModifiedBy>
         <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-        <owner>project: EC-Admin.ORIG</owner>
+        <owner>project: CleanupTest</owner>
         <acl>
           <aclId>3969630</aclId>
           <inheriting>1</inheriting>
@@ -152,9 +152,9 @@
           <propertyName>exportGroups</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -162,9 +162,9 @@
           <propertyName>exportResourcePools</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -172,9 +172,9 @@
           <propertyName>exportResources</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -182,9 +182,9 @@
           <propertyName>exportUsers</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -192,9 +192,9 @@
           <propertyName>exportWorkspaces</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>true</value>
         </property>
         <property>
@@ -202,9 +202,9 @@
           <propertyName>pathname</propertyName>
           <createTime>2014-01-29T23:00:00.003Z</createTime>
           <expandable>0</expandable>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <value>/scratch/BACKUP</value>
         </property>
       </propertySheet>
@@ -225,17 +225,17 @@
           <external>0</external>
           <finish>2014-01-29T23:01:56.435Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveProjectsProcedur.1689596.log</logFileName>
           <modifyTime>2014-01-29T23:01:56.435Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -253,14 +253,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveProjectsProceduresWorkflows</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937758</propertySheetId>
             <createTime>2014-01-29T23:01:56.346Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:01:56.346Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969655</aclId>
               <inheriting>1</inheriting>
@@ -270,9 +270,9 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:01:56.346Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:01:56.346Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>70 projects exported&#10;  545 procedures exported&#10;  38 workflows exported</value>
             </property>
           </propertySheet>
@@ -293,17 +293,17 @@
           <external>0</external>
           <finish>2014-01-29T23:01:57.507Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveResources.1689597.log</logFileName>
           <modifyTime>2014-01-29T23:01:57.507Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -321,14 +321,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveResources</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937759</propertySheetId>
             <createTime>2014-01-29T23:01:57.421Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:01:57.421Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969656</aclId>
               <inheriting>1</inheriting>
@@ -338,9 +338,9 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:01:57.421Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:01:57.421Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>11 resources exported</value>
             </property>
           </propertySheet>
@@ -361,17 +361,17 @@
           <external>0</external>
           <finish>2014-01-29T23:01:58.323Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveResourcePools.1689598.log</logFileName>
           <modifyTime>2014-01-29T23:01:58.323Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -389,14 +389,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveResourcePools</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937760</propertySheetId>
             <createTime>2014-01-29T23:01:58.235Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:01:58.235Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969657</aclId>
               <inheriting>1</inheriting>
@@ -406,9 +406,9 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:01:58.235Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:01:58.235Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>5 pools exported</value>
             </property>
           </propertySheet>
@@ -429,17 +429,17 @@
           <external>0</external>
           <finish>2014-01-29T23:01:59.090Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveWorkspaces.1689599.log</logFileName>
           <modifyTime>2014-01-29T23:01:59.090Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -457,14 +457,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveWorkspaces</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937761</propertySheetId>
             <createTime>2014-01-29T23:01:59.001Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:01:59.001Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969658</aclId>
               <inheriting>1</inheriting>
@@ -474,9 +474,9 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:01:59.001Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:01:59.001Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>3 workspaces exported</value>
             </property>
           </propertySheet>
@@ -497,17 +497,17 @@
           <external>0</external>
           <finish>2014-01-29T23:02:07.108Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveUsers.1689600.log</logFileName>
           <modifyTime>2014-01-29T23:02:07.108Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -525,14 +525,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveUsers</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937764</propertySheetId>
             <createTime>2014-01-29T23:02:07.025Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:02:07.025Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969665</aclId>
               <inheriting>1</inheriting>
@@ -542,9 +542,9 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:02:07.025Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:02:07.025Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>5 users exported</value>
             </property>
           </propertySheet>
@@ -565,17 +565,17 @@
           <external>0</external>
           <finish>2014-01-29T23:02:08.011Z</finish>
           <hostName>localhost</hostName>
-          <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+          <lastModifiedBy>project: CleanupTest</lastModifiedBy>
           <licenseWaitTime>0</licenseWaitTime>
           <logFileName>saveGroups.1689602.log</logFileName>
           <modifyTime>2014-01-29T23:02:08.011Z</modifyTime>
           <outcome>success</outcome>
-          <owner>project: EC-Admin.ORIG</owner>
+          <owner>project: CleanupTest</owner>
           <parallel>0</parallel>
           <postExitCode>0</postExitCode>
           <postProcessor></postProcessor>
           <precondition></precondition>
-          <procedureName>/projects/EC-Admin.ORIG/procedures/saveAllObjects</procedureName>
+          <procedureName>/projects/CleanupTest/procedures/saveAllObjects</procedureName>
           <releaseMode>none</releaseMode>
           <resourceWaitTime>0</resourceWaitTime>
           <retries>0</retries>
@@ -593,14 +593,14 @@
             <inheriting>1</inheriting>
           </acl>
           <jobId>210211</jobId>
-          <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+          <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
           <liveProcedureStep>saveGroups</liveProcedureStep>
           <propertySheet>
             <propertySheetId>1937765</propertySheetId>
             <createTime>2014-01-29T23:02:07.938Z</createTime>
-            <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+            <lastModifiedBy>project: CleanupTest</lastModifiedBy>
             <modifyTime>2014-01-29T23:02:07.938Z</modifyTime>
-            <owner>project: EC-Admin.ORIG</owner>
+            <owner>project: CleanupTest</owner>
             <acl>
               <aclId>3969666</aclId>
               <inheriting>1</inheriting>
@@ -610,18 +610,18 @@
               <propertyName>preSummary</propertyName>
               <createTime>2014-01-29T23:02:07.938Z</createTime>
               <expandable>1</expandable>
-              <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+              <lastModifiedBy>project: CleanupTest</lastModifiedBy>
               <modifyTime>2014-01-29T23:02:07.938Z</modifyTime>
-              <owner>project: EC-Admin.ORIG</owner>
+              <owner>project: CleanupTest</owner>
               <value>9 groups exported</value>
             </property>
           </propertySheet>
         </jobStep>
       </calledProcedure>
     </jobStep>
-    <liveProcedure>/projects/EC-Admin.ORIG/procedures/saveAllObjects</liveProcedure>
+    <liveProcedure>/projects/CleanupTest/procedures/saveAllObjects</liveProcedure>
     <liveSchedule>saveObjects</liveSchedule>
-    <projectName>EC-Admin.ORIG</projectName>
+    <projectName>CleanupTest</projectName>
     <emailNotifier>
       <emailNotifierId>2339</emailNotifierId>
       <notifierName>failureNotification</notifierName>
@@ -632,9 +632,9 @@
       <destinations>$[/users/admin/email]</destinations>
       <eventType>onCompletion</eventType>
       <formattingTemplate>Subject: Job  '$[jobName]'  from procedure  '$[procedureName]'  $[/myEvent/type]  - Commander notification&#10;&#10;$[/server/ec_notifierTemplates/Html_JobTempl/body]</formattingTemplate>
-      <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+      <lastModifiedBy>project: CleanupTest</lastModifiedBy>
       <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-      <owner>project: EC-Admin.ORIG-1.11.4.93</owner>
+      <owner>project: CleanupTest-1.11.4.93</owner>
       <acl>
         <aclId>3969632</aclId>
         <inheriting>1</inheriting>
@@ -648,16 +648,16 @@
           <denyExecute>0</denyExecute>
           <denyModify>0</denyModify>
           <denyRead>0</denyRead>
-          <principalName>project: EC-Admin.ORIG-1.11.4.93</principalName>
+          <principalName>project: CleanupTest-1.11.4.93</principalName>
           <principalType>user</principalType>
         </aclEntry>
       </acl>
       <propertySheet>
         <propertySheetId>1937750</propertySheetId>
         <createTime>2014-01-29T23:00:00.003Z</createTime>
-        <lastModifiedBy>project: EC-Admin.ORIG</lastModifiedBy>
+        <lastModifiedBy>project: CleanupTest</lastModifiedBy>
         <modifyTime>2014-01-29T23:00:00.003Z</modifyTime>
-        <owner>project: EC-Admin.ORIG</owner>
+        <owner>project: CleanupTest</owner>
         <acl>
           <aclId>3969633</aclId>
           <inheriting>1</inheriting>

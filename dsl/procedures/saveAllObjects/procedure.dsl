@@ -17,16 +17,7 @@ History:
 def procName= 'saveAllObjects'
 
 procedure procName,
-  description: '''export objects individually in a tree like structure for further CMS checkin:
-  Projects
-  Procedures
-  Resources
-  ResourcePools
-  Workspaces
-  Users
-  Groups
-  Server Properties
-''',
+  description: 'export objects individually in a tree like structure for further CMS checkin',
   // Need full path or else scheduled jobs don't work
   jobNameTemplate: '$[/plugins/EC-Admin/project/scripts/jobTemplate]',
 {
@@ -131,6 +122,12 @@ All steps need to run on the same host''',
   step 'savePersonas',
     command: new File(pluginDir, "dsl/procedures/$procName/steps/savePersonas.pl").text,
     condition: '$[exportPersonas]',
+    resourceName: '$[/myJob/backupResource]',
+    shell: 'ec-perl'
+  step 'saveConfigurations',
+    command: new File(pluginDir, "dsl/procedures/$procName/steps/saveConfigurations.pl").text,
+    description: "Save email and directory providers configurations",
+    condition: '1',
     resourceName: '$[/myJob/backupResource]',
     shell: 'ec-perl'
 }

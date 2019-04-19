@@ -57,9 +57,11 @@ foreach my $node ($xPath->findnodes('//resource')) {
 
   printf("Saving Resource: %s\n", $resName);
   my $fileResourceName=safeFilename($resName);
+  mkpath("$path/resources/$fileResourceName");
+  chmod(0777, "$path/resources/$fileResourceName");
 
   my ($success, $res, $errMsg, $errCode) =
-    backupObject($format, "$path/resources/$fileResourceName",
+    backupObject($format, "$path/resources/$fileResourceName/resource",
       "/resources[$resName]", $relocatable, $includeACLs, "false");
   if (! $success) {
     printf("  Error exporting %s", $resName);

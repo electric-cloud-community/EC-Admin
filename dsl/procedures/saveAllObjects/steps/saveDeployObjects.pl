@@ -25,6 +25,7 @@
 # 2019-Feb 21 lrochette Changing paths to match EC-DslDeploy
 # 2019-Feb-22 lrochette Fix #166: save catalogs and catalogItems
 #                       Fix #165: save dashbaords
+# 2019-Apr-16 lrochette Fix format to match EC-DslDeploy
 ##############################################################################
 use File::Path;
 
@@ -273,10 +274,12 @@ foreach my $node ($xPath->findnodes('//project')) {
 
       my $fileServName=safeFilename($servName);
       printf("  Saving Service: %s\n", $servName);
+      mkpath("$path/projects/$fileProjectName/services/$fileServName");
+      chmod(0777, "$path/projects/$fileProjectName/services/$fileServName");
 
       my ($success, $res, $errMsg, $errCode) =
         backupObject($format,
-          "$path/projects/$fileProjectName/services/$fileServName",
+          "$path/projects/$fileProjectName/services/$fileServName/service",
           "/projects[$pName]services[$servName]",
           $relocatable, $includeACLs, $includeNotifiers);
 
@@ -330,17 +333,19 @@ foreach my $node ($xPath->findnodes('//project')) {
       }
 
       # backup catalogItems
+      mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
+      chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems");
       my ($ok, $json) = InvokeCommander("SuppressLog", "getCatalogItems", $pName, $catName);
       foreach my $item ($json->findnodes("//catalogItem")) {
         my $itemName=$item->{'catalogItemName'};
         my $fileItemName=safeFilename($itemName);
         printf("    Saving Catalog Item: %s\n", $itemName);
-        mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/items");
-        chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/items");
+        mkpath("$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems/$fileItemName");
+        chmod(0777, "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems/$fileItemName");
 
         my ($success, $res, $errMsg, $errCode) =
           backupObject($format,
-            "$path/projects/$fileProjectName/catalogs/$fileCatName/items/$fileItemName",
+            "$path/projects/$fileProjectName/catalogs/$fileCatName/catalogItems/$fileItemName/catalogItem",
             "/projects[$pName]catalogs[$catName]catalogItems[$itemName]",
             $relocatable, $includeACLs, $includeNotifiers);
 
@@ -378,9 +383,8 @@ foreach my $node ($xPath->findnodes('//project')) {
 
       my $fileDashName=safeFilename($dashName);
       printf("  Saving Dashboard: %s\n", $dashName);
-
-     mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName");
-     chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName");
+      mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName");
+      chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName");
 
       my ($success, $res, $errMsg, $errCode) =
         backupObject($format,
@@ -399,16 +403,18 @@ foreach my $node ($xPath->findnodes('//project')) {
 
       # backup widget
       my ($ok, $json) = InvokeCommander("SuppressLog", "getWidgets", $pName, $dashName);
+      mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/widgets");
+      chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/widgets");
       foreach my $widget ($json->findnodes("//widget")) {
         my $widgetName=$widget->{'widgetName'};
         my $fileWidgetName=safeFilename($widgetName);
         printf("    Saving Widget: %s\n", $widgetName);
-        mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/widgets");
-        chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/widgets");
+        mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/widgets/$fileWidgetName");
+        chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/widgets/$fileWidgetName");
 
         my ($success, $res, $errMsg, $errCode) =
           backupObject($format,
-            "$path/projects/$fileProjectName/dashboards/$fileDashName/widgets/$fileWidgetName",
+            "$path/projects/$fileProjectName/dashboards/$fileDashName/widgets/$fileWidgetName/widget",
             "/projects[$pName]dashboards[$dashName]widgets[$widgetName]",
             $relocatable, $includeACLs, $includeNotifiers);
 
@@ -424,17 +430,19 @@ foreach my $node ($xPath->findnodes('//project')) {
       }       # widget Loop
 
       # backup reportingFilters
+      mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/reportingFilters");
+      chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/reportingFilters");
       my ($ok, $json) = InvokeCommander("SuppressLog", "getReportingFilters", $pName, $dashName);
       foreach my $filter ($json->findnodes("//reportingFilter")) {
         my $filterName=$filter->{'reportingFilterName'};
         my $fileFilterName=safeFilename($filterName);
         printf("    Saving ReportingFilter: %s\n", $filterName);
-        mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/filters");
-        chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/filters");
+        mkpath("$path/projects/$fileProjectName/dashboards/$fileDashName/reportingFilters/$fileFilterName");
+        chmod(0777, "$path/projects/$fileProjectName/dashboards/$fileDashName/reportingFilters/$fileFilterName");
 
         my ($success, $res, $errMsg, $errCode) =
           backupObject($format,
-            "$path/projects/$fileProjectName/dashboards/$fileDashName/filters/$fileFilterName",
+            "$path/projects/$fileProjectName/dashboards/$fileDashName/reportingFilters/$fileFilterName/reportingFilter",
             "/projects[$pName]dashboards[$dashName]reportingFilters[$filterName]",
             $relocatable, $includeACLs, $includeNotifiers);
 
@@ -455,7 +463,6 @@ foreach my $node ($xPath->findnodes('//project')) {
     #
     mkpath("$path/projects/$fileProjectName/reports");
     chmod(0777, "$path/projects/$fileProjectName/reports");
-
     my ($success, $xPath) = InvokeCommander("SuppressLog", "getReports", {projectName => $pName});
     foreach my $report ($xPath->findnodes('//report')) {
       my $reportName=$report->{'reportName'};
@@ -465,12 +472,11 @@ foreach my $node ($xPath->findnodes('//project')) {
 
       my $fileReportName=safeFilename($reportName);
       printf("  Saving Report: %s\n", $reportName);
+      mkpath("$path/projects/$fileProjectName/reports/$fileReportName");
+      chmod(0777, "$path/projects/$fileProjectName/reports/$fileReportName");
 
-     mkpath("$path/projects/$fileProjectName/reports/$fileReportName");
-     chmod(0777, "$path/projects/$fileProjectName/reports/$fileReportName");
-
-      my ($success, $res, $errMsg, $errCode) =
-        backupObject($format,
+       my ($success, $res, $errMsg, $errCode) =
+         backupObject($format,
           "$path/projects/$fileProjectName/reports/$fileReportName/report",
           "/projects[$pName]reports[$reportName]",
           $relocatable, $includeACLs, $includeNotifiers);
