@@ -15,7 +15,7 @@ use ElectricCommander ();
 $| = 1;
 my $ec = new ElectricCommander->new({timeout => 600});
 
-my $pluginVersion = "4.1.1";
+my $pluginVersion = "4.2.0";
 my $pluginKey = "EC-Admin";
 
 

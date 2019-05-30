@@ -1,7 +1,7 @@
 # EC-Admin
 
 EC-Admin is a collection of advanced management, optimization, and customization
-tools for ElectricFlow. It includes tools for:
+tools for CloudBees Flow. It includes tools for:
 
 * Bulk resource health checks
 * White labeling
@@ -11,7 +11,7 @@ tools for ElectricFlow. It includes tools for:
 * Debug tools
 * More
 
-EC-Admin is used in many ElectricFlow field deployments.
+EC-Admin is used in many CloudBees Flow field deployments.
 
 In June 2018, the plugin was converted to the [Plugin Wizard DSL framework](https://github.com/electric-cloud/PluginWizard)
 format so the whole plugin code is now managed on GitHub without the need
@@ -26,7 +26,7 @@ For the latest code changes, check the [maintainer's fork](https://github.com/lr
 
 Requirements:
 
-* Electric Flow 6.0 minimum
+* CloudBees Flow 6.0 minimum
 * EC-PluginManager 1.4.0
 
 
@@ -36,7 +36,7 @@ It is available as a plugin delivered in the form of a .jar file.
 
 To install the plugin, use one the following methods:
 
-* ElectricFlow Administration/Plugins UI - "Install from File/URL"
+* CloudBees Flow Administration/Plugins UI - "Install from File/URL"
 * CLI - `ectool installPlugin --force 1 EC-Admin.jar`
 * Perl - `$ec->installPlugin()` API.
 
@@ -72,7 +72,7 @@ fixes to my poor code.
 # Legal Mumbo Jumbo
 
 This plugin is free for use. Modify it however you see fit to better your
-experience using ElectricFlow. Share
+experience using CloudBees Flow. Share
 your [enhancements](https://github.com/electric-cloud-community/EC-DslDeploy/issues)
 and [fixes](https://github.com/electric-cloud-community/EC-DslDeploy/pulls)
 

@@ -7,5 +7,5 @@
 
 if ($osIsWindows) {
   $ec->setProperty("summary", "Rebooting the agent");
-  system("shutdown /r /c \"ElectricFlow: modification of the Java Heap memory settings\" /t 15")
+  system("shutdown /r /c \"CloudBees Flow: modification of the Java Heap memory settings\" /t 15")
 }

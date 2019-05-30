@@ -28,7 +28,7 @@ what it is now.</p>
     directory</a> for the official stable version. You can also follow development
     in our <a href="https://github.com/electric-cloud-community/EC-Admin">Community
     GitHub repository</a>. It is available as a plugin delivered in the form of
-    a .jar file. It requires ElectricFlow 6.0 at a minimum.</p>
+    a .jar file. It requires CloudBees Flow 6.0 at a minimum.</p>
 
   <p>To install the plugin, use one the following methods:</p>
   <ul>
@@ -133,7 +133,7 @@ ectool import /path_to/EC-Admin_for_EC_4.0.xml --disableSchedules 1</p>
 
 	<h1><a name="look"></a>Look and Feel</h1>
 	<h2>changeBannerColor</h2>
-	<p>If you work on multiple Flow servers, for example a combination of
+	<p>If you work on multiple CloudBees Flow servers, for example a combination of
     development and	production instances, this procedure is for you. It allows
     you to change the color of the top banner and the logo to make it easier to
     identify each instance. Feel free
@@ -164,7 +164,7 @@ go along different background colors.</td>
       </tr>
       <tr>
         <td>logoFile</td>
-        <td>The path on the Flow server to upload your own logo (up to
+        <td>The path on the CloudBees Flow server to upload your own logo (up to
           225x90 px). If this value is not blank, it will overwrite the logo
           parameter above.</td>
       </tr>
@@ -383,7 +383,7 @@ or a bad code change. By  default, it exports projects and each procedure
 individually. In addition, by enabling the matching checkboxes, you can also
 export steps, ACLs, notifiers, resources and resource pools, workspaces,
 users and groups, gateways and zones, workspace definitions, artifacts and
-artifact versions (not the content itself);  and  ElectricFlow Deploy objects
+artifact versions (not the content itself); and Deploy objects
 (Applications, Components, Environments, services, pipelines, releases, ...).
 It is recommended to enable the nightly schedule associated
 with it to backup your projects on a regular basis.</p>
@@ -655,7 +655,7 @@ properties can be set up:</p>
 	<h1>Legal Mumbo Jumbo</h1>
 
 	<p>This plugin is free for use. Modify it however you see fit to better your
-experience using ElectricFlow. Share
+experience using CloudBees Flow. Share
 your <a href="https://github.com/electric-cloud-community/EC-Admin/issues">enhancements</a>
 and <a href="https://github.com/electric-cloud-community/EC-Admin/pulls">fixes</a>.</p>
 
