@@ -3,7 +3,7 @@ import java.io.File
 def procName= 'subPM-deploymentSize'
 
 procedure procName,
-  description: '''a couple of steps to size your ElectricFlow installation
+  description: '''a couple of steps to size your CloudBees Flow installation
 
 Number per Implementation     Small	Medium	Large
 ---------------------------------------------------------
@@ -18,7 +18,7 @@ Managed Resources            <100   <1000	  >1000''',
     command: new File(pluginDir, "dsl/procedures/$procName/steps/agents.pl").text,
     shell: 'ec-perl'
 
-  step 'managedResources', 
+  step 'managedResources',
     command: new File(pluginDir, "dsl/procedures/$procName/steps/managedResources.pl").text,
     shell: 'ec-perl'
 

@@ -22,7 +22,7 @@ class cleanup extends PluginTestHelper {
   }
 
   def callJobsCleanup(String jobName, def additionnalParams) {
-    println "LR## Running callJobsCleanup"
+    // println "LR## Running callJobsCleanup"
     def params =[
       computeUsage: "\"0\"",
       executeDeletion: "\"true\"",
@@ -122,11 +122,68 @@ class cleanup extends PluginTestHelper {
       importXML("data/cleanup/error.xml")
       importXML("data/cleanup/warning.xml")
       importXML("data/cleanup/aborted.xml")
-   when: "invoking cleaning job in report mode"
-      def result=callJobsCleanup("jobsCleanup", [executeDeletion: "false"])
-    then: "it's OK"
-      assert result?.outcome == 'success'
-      assert getJobProperty("numberOfJobs", result.jobId) == "4"
- }
+    when: "invoking cleaning job in report mode"
+      def res1=callJobsCleanup("jobsCleanup_Report", [executeDeletion: "false"])
+    then: "4 jobs returned"
+      assert res1?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res1.jobId) == "4"
 
+    when: "invoking cleaning job for abort jobs"
+      def res2=callJobsCleanup("jobsCleanup_abort", [
+        executeDeletion: "true",
+        jobLevel: "Aborted"])
+    then: "1 job deleted"
+      assert res2?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res2.jobId) == "1"
+
+    when: "invoking cleaning job for error jobs"
+      def res3=callJobsCleanup("jobsCleanup_error", [
+        executeDeletion: "true",
+        jobLevel: "Error"])
+    then: "1 jobs deleted"
+      assert res3?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res3.jobId) == "1"
+
+    when: "invoking cleaning job for all jobs"
+      def res4=callJobsCleanup("jobsCleanup_all", [
+        executeDeletion: "true",
+        jobLevel: "All"])
+    then: "2 jobs deleted"
+      assert res4?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res4.jobId) == "2"
+
+    when: "invoking cleaning job for all jobs"
+      def res5=callJobsCleanup("jobsCleanup_nothing", [
+        executeDeletion: "true",
+        jobLevel: "All"])
+    then: "Nothing to delete anymore"
+      assert res5?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res5.jobId) == "0"
+  }
+
+  def "local_workspace_on_disable_machine"() {
+    given: "old jobs loaded from XML"
+      importXML("data/cleanup/localwin.xml")
+      dsl """resource 'ecadmin-win',
+              resourceDisabled: '1'
+      """
+    when: "trying to clean"
+      def res=callJobsCleanup("jobsCleanup_Report", [executeDeletion: "false"])
+    then: "4 jobs are deleted"
+      assert res?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res.jobId) == "4"
+  }
+
+  def "Issue_21_local_workspace_on_linux_machine"() {
+    given: "old jobs loaded from XML"
+      importXML("data/cleanup/localWks_linux.xml")
+      dsl """resource 'ecadmin-lin',
+              resourceDisabled: '0'
+      """
+    when: "trying to clean"
+      def res=callJobsCleanup("jobsCleanup_Report", [executeDeletion: "false"])
+    then: "1 job is deleted"
+      assert res?.outcome == 'success'
+      assert getJobProperty("numberOfJobs", res.jobId) == "1"
+  }
 }

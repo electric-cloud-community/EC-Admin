@@ -9,7 +9,7 @@ $[/plugins[EC-Admin]project/scripts/perlHeaderJSON]
 
 if ($osIsWindows) {
   $ec->setProperty("summary", "Rebooting the agent");
-  system("shutdown /r /c \"ElectricFlow: modification of the Java Heap memory settings\" /t 15")
+  system("shutdown /r /c \"CloudBees Flow: modification of the Java Heap memory settings\" /t 15")
 } else {
   $ec->setProperty("summary", "Restarting the agent service");
   system("echo '/etc/init.d/commanderAgent start' | at now + 1 minute");
