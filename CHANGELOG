@@ -1,4 +1,9 @@
+2019-06-05 Laurent Rochette <lrochette@cloudbees.com>
+  * 4.3.0: issue 38: add support for devOpsInsightDataSources in saveAllObjects
+
 2019-04-30 Laurent Rochette <lrochette@cloudbees.com>
+  * 4.2.1: remove generateDslTree
+           Fix cleanup spec test
   * 4.2.0: Replace default logo with new CloudBees Flow one
            Rebrand ElectricFlow into CloudBees Flow
 

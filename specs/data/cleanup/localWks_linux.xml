@@ -30,7 +30,7 @@
       <start>2014-02-12T17:38:27.829Z</start>
       <status>completed</status>
       <subprocedure>performanceMetrics</subprocedure>
-      <subproject>EC-Admin Management</subproject>
+      <subproject>CleanupTest</subproject>
       <timeLimit></timeLimit>
       <workspaceWaitTime>0</workspaceWaitTime>
       <actualParameters>
@@ -507,7 +507,7 @@
           <start>2014-02-12T17:38:33.420Z</start>
           <status>completed</status>
           <subprocedure>subPM-deploymentSize</subprocedure>
-          <subproject>EC-Admin Management</subproject>
+          <subproject>CleanupTest</subproject>
           <timeLimit></timeLimit>
           <workspaceWaitTime>0</workspaceWaitTime>
           <liveProcedure>performanceMetrics</liveProcedure>
@@ -809,7 +809,7 @@
           <start>2014-02-12T17:38:48.060Z</start>
           <status>completed</status>
           <subprocedure>subPM-localUsage</subprocedure>
-          <subproject>EC-Admin Management</subproject>
+          <subproject>CleanupTest</subproject>
           <timeLimit></timeLimit>
           <workspaceWaitTime>0</workspaceWaitTime>
           <actualParameters>
@@ -947,7 +947,7 @@
               <start>2014-02-12T17:38:50.985Z</start>
               <status>completed</status>
               <subprocedure>subPM-performance</subprocedure>
-              <subproject>EC-Admin Management</subproject>
+              <subproject>CleanupTest</subproject>
               <timeLimit></timeLimit>
               <workingDirectory></workingDirectory>
               <workspaceName>default</workspaceName>
@@ -1053,7 +1053,7 @@
               <start>2014-02-12T17:38:51.026Z</start>
               <status>completed</status>
               <subprocedure>subPM-performance</subprocedure>
-              <subproject>EC-Admin Management</subproject>
+              <subproject>CleanupTest</subproject>
               <timeLimit></timeLimit>
               <workingDirectory></workingDirectory>
               <workspaceName>default</workspaceName>
@@ -1408,7 +1408,7 @@
               <start>2014-02-12T17:39:01.133Z</start>
               <status>completed</status>
               <subprocedure>subPM-ping</subprocedure>
-              <subproject>EC-Admin Management</subproject>
+              <subproject>CleanupTest</subproject>
               <timeLimit></timeLimit>
               <workingDirectory></workingDirectory>
               <workspaceName>default</workspaceName>
@@ -1511,7 +1511,7 @@
               <start>2014-02-12T17:39:05.927Z</start>
               <status>completed</status>
               <subprocedure>subPM-ping</subprocedure>
-              <subproject>EC-Admin Management</subproject>
+              <subproject>CleanupTest</subproject>
               <timeLimit></timeLimit>
               <workingDirectory></workingDirectory>
               <workspaceName>default</workspaceName>
@@ -1631,7 +1631,7 @@
       </calledProcedure>
     </jobStep>
     <liveProcedure>performanceMetrics</liveProcedure>
-    <projectName>EC-Admin Management</projectName>
+    <projectName>CleanupTest</projectName>
     <workspaceName>default</workspaceName>
     <workspaceName>ecadmin-lin-wks</workspaceName>
   </job>

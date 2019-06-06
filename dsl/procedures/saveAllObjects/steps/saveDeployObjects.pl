@@ -26,6 +26,7 @@
 # 2019-Feb-22 lrochette Fix #166: save catalogs and catalogItems
 #                       Fix #165: save dashbaords
 # 2019-Apr-16 lrochette Fix format to match EC-DslDeploy
+# 2019-Jun-05 lrochette Issue 38: add support for devOpsInsightDataSources
 ##############################################################################
 use File::Path;
 
@@ -51,6 +52,7 @@ my $envCount    = 0;
 my $compCount   = 0;
 my $pipeCount   = 0;
 my $relCount    = 0;
+my $srcCount    = 0;
 my $servCount   = 0;
 my $catCount    = 0;
 my $itemCount   = 0;
@@ -106,7 +108,7 @@ foreach my $node ($xPath->findnodes('//project')) {
     chmod(0777, "$path/projects/$fileProjectName/applications/$fileAppName");
     my ($success, $res, $errMsg, $errCode) =
       backupObject($format,
-        "$path/projects/$fileProjectName/applications/$fileAppName/application.groovy",
+        "$path/projects/$fileProjectName/applications/$fileAppName/application",
         "/projects[$pName]applications[$appName]",
         $relocatable, $includeACLs, $includeNotifiers);
 
@@ -235,12 +237,14 @@ foreach my $node ($xPath->findnodes('//project')) {
       # skip releases that don't fit the pattern
       next if (($pName  eq "Default") && ($relName !~ /$pattern/$[caseSensitive] ));  # / just for the color
 
-      my $filePipeName=safeFilename($relName);
       printf("  Saving Release: %s\n", $relName);
+      my $fileRelName=safeFilename($relName);
+      mkpath("$path/projects/$fileProjectName/releases/$fileRelName");
+      chmod(0777, "$path/projects/$fileProjectName/releases/$fileRelName");
 
       my ($success, $res, $errMsg, $errCode) =
         backupObject($format,
-          "$path/projects/$fileProjectName/releases/$filePipeName",
+          "$path/projects/$fileProjectName/releases/$fileRelName/release",
           "/projects[$pName]releases[$relName]",
           $relocatable, $includeACLs, $includeNotifiers);
 
@@ -251,6 +255,35 @@ foreach my $node ($xPath->findnodes('//project')) {
       }
       else {
         $relCount++;
+      }
+
+      if (compareVersion($version, "9.0") < 0) {
+        printf("WARNING: Version 9.0 or greater is required to save DOIS sources");
+      } else {
+        mkpath("$path/projects/$fileProjectName/releases/$fileRelName/devOpsInsightDataSources");
+        chmod(0777, "$path/projects/$fileProjectName/releases/$fileRelName/devOpsInsightDataSources");
+        my ($suc2, $xPath2) = InvokeCommander("SuppressLog", "getDevOpsInsightDataSources", $pName, $relName);
+        foreach my $src ($xPath2->findnodes('//devOpsInsightDataSource')) {
+          my $srcName=$src->{'devOpsInsightDataSourceName'};
+          printf("    Saving devOpsInsightDataSource: %s\n", $srcName);
+          my $fileSrcName=safeFilename($srcName);
+          mkpath("$path/projects/$fileProjectName/releases/$fileRelName/devOpsInsightDataSources/$fileSrcName");
+          chmod(0777, "$path/projects/$fileProjectName/releases/$fileRelName/devOpsInsightDataSources/$fileSrcName");
+          ($success, $res, $errMsg, $errCode) =
+            backupObject($format,
+              "$path/projects/$fileProjectName/releases/$fileRelName/devOpsInsightDataSources/$fileSrcName/devOpsInsightDataSource",
+              "/projects[$pName]releases[$relName]devOpsInsightDataSources[$srcName]",
+              $relocatable, $includeACLs, $includeNotifiers);
+
+          if (! $success) {
+            printf("    Error exporting devOpsInsightDataSource %s", $srcName);
+            printf("    %s: %s\n", $errCode, $errMsg);
+            $errorCount++;
+          }
+          else {
+            $srcCount++;
+          }
+        }
       }
     }         # Release loop
   }           # Version greater than 6.1
@@ -495,18 +528,19 @@ foreach my $node ($xPath->findnodes('//project')) {
 }             # project loop
 
 my $str="";
-$str .= createExportString($appCount, "application");
-$str .= createExportString($envCount, "environment");
-$str .= createExportString($compCount, "component");
-$str .= createExportString($pipeCount, "pipeline");
-$str .= createExportString($relCount, "release");
-$str .= createExportString($servCount, "service");
-$str .= createExportString($catCount, "catalog");
-$str .= createExportString($itemCount, "catalog item");
-$str .= createExportString($reportCount, "report");
-$str .= createExportString($dashCount, "dashboard");
-$str .= createExportString($widgetCount, "widget");
-$str .= createExportString($filterCount, "reporting filter");
+$str .= createExportString($appCount, "application")         if ($appCount);
+$str .= createExportString($envCount, "environment")         if ($envCount);
+$str .= createExportString($compCount, "component")          if ($compCount);
+$str .= createExportString($pipeCount, "pipeline")           if ($pipeCount);
+$str .= createExportString($relCount, "release")             if ($relCount);
+$str .= createExportString($srcCount, "source")              if ($srcCount);
+$str .= createExportString($servCount, "service")            if ($servCount);
+$str .= createExportString($catCount, "catalog")             if ($catCount);
+$str .= createExportString($itemCount, "catalog item")       if ($itemCount);
+$str .= createExportString($reportCount, "report")           if ($reportCount);
+$str .= createExportString($dashCount, "dashboard")          if ($dashCount);
+$str .= createExportString($widgetCount, "widget")           if ($widgetCount);
+$str .= createExportString($filterCount, "reporting filter") if ($filterCount);
 
 $ec->setProperty("preSummary", $str);
 
@@ -515,6 +549,7 @@ $ec->setProperty("/myJob/environmentExported",     $envCount);
 $ec->setProperty("/myJob/componentExported",       $compCount);
 $ec->setProperty("/myJob/pipelineExported",        $pipeCount);
 $ec->setProperty("/myJob/releaseExported",         $relCount);
+$ec->setProperty("/myJob/sourceExported",          $srcCount);
 $ec->setProperty("/myJob/serviceExported",         $servCount);
 $ec->setProperty("/myJob/catalogExported",         $catCount);
 $ec->setProperty("/myJob/catalogItemExported",     $itemCount);
