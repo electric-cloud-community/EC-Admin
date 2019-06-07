@@ -12,6 +12,7 @@ class cleanup extends PluginTestHelper {
         description: "For testing EC-Admin cleanup",
       {
         procedure 'saveAllObjects'
+        procedure 'performanceMetrics'
       }
     """
   }
@@ -168,10 +169,10 @@ class cleanup extends PluginTestHelper {
               resourceDisabled: '1'
       """
     when: "trying to clean"
-      def res=callJobsCleanup("jobsCleanup_Report", [executeDeletion: "false"])
-    then: "4 jobs are deleted"
-      assert res?.outcome == 'success'
-      assert getJobProperty("numberOfJobs", res.jobId) == "4"
+      def res=callJobsCleanup("jobsCleanup_local_wks_disable_machine", [executeDeletion: "true"])
+    then: "1 job is deleted"
+      assert res?.outcome == 'warning'
+      assert getJobProperty("numberOfJobs", res.jobId) == "1"
   }
 
   def "Issue_21_local_workspace_on_linux_machine"() {
@@ -181,9 +182,32 @@ class cleanup extends PluginTestHelper {
               resourceDisabled: '0'
       """
     when: "trying to clean"
-      def res=callJobsCleanup("jobsCleanup_Report", [executeDeletion: "false"])
+      def res=callJobsCleanup("jobsCleanup_Issue21", [executeDeletion: "true"])
     then: "1 job is deleted"
-      assert res?.outcome == 'success'
+      assert res?.outcome == 'warning'
       assert getJobProperty("numberOfJobs", res.jobId) == "1"
   }
+
+/*
+  def "Issue_114_workspace_error"() {
+    given: "old jobs loaded from XML"
+      importXML("data/cleanup/missingWorkspace.xml")
+      dsl """
+        workspace "Windows",
+          workspaceDisabled: "1",
+          agentUncPath: '',
+          agentUnixPath: '',
+          agentDrivePath: 'C:\\\\TEMP',
+          zoneName: 'default',
+          local:'1'
+        resource "win7",
+          resourceDisabled: "0"
+      """
+    when: "Trying to clean"
+      def res=callJobsCleanup("jobsCleanup_Issue114", [executeDeletion: "true"])
+    then: "error ensues"
+      assert res?.outcome == "error"
+      assert getStepProperty(res.jobId, 'deleteWorkspaceDirectory', 'errorCode') == "AGENT_INVALID_MESSAGE"
+  }
+  */
 }
