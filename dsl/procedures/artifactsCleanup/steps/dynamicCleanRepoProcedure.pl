@@ -20,7 +20,15 @@ my $nodeset = $xPath->find('//repository');
 
 foreach my $node ($nodeset->get_nodelist) {
   my $repoName=$node->findvalue('repositoryName');
-  my $repoServerName = $node->findvalue('url');
+  my $repoServerName;
+
+  # The resourceName for the 'default' repository will be 'local' rather than the hostname
+  if ($repoName eq "default") {
+    $repoServerName = "local";
+  } else {
+    $repoServerName = $node->findvalue('url');
+  }
+
   my $repoDisabled = $node->findvalue('repositoryDisabled');
 
   printf("AR: %s\n", $repoName);
